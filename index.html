@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofonias Genanaw | Shofar Ads</title>
+    
+    <meta property="og:title" content="Sofonias Genanaw - Digital Business Card" />
+    <meta property="og:description" content="Digital Business Card for Sofonias Genanaw, Sales & Marketing Manager at Shofar Ads." />
+    <meta property="og:image" content="https://i.ibb.co/RGrFWmNJ/32609-7a1f3b2322a1ce0f2e03d1dddcbe068f-12-4-2025-1-29-58-PM.png" /> 
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #010203;
+        }
+        
+        /* Updated Primary Color: #fa3d22 */
+        .contact-btn {
+            transition: all 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+            border: 1px solid #fa3d22;
+        }
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(250, 61, 34, 0.4); 
+        }
+
+        .wave-background {
+            background: #010203; 
+            position: relative; 
+            overflow: hidden; 
+            z-index: 1; 
+            border-bottom: 4px solid #fa3d22; 
+        }
+
+        .graph-pattern-background {
+            background-color: #010203; 
+        }
+
+        .strip-decoration {
+            position: absolute;
+            width: 450px; 
+            height: 10px; 
+            background-color: #fa3d22;
+            transform: rotate(-45deg); 
+            opacity: 0.15;
+        }
+        .strip-ur-1 { top: -100px; right: -150px; } 
+        .strip-ll-1 { bottom: -100px; left: -150px; } 
+
+        .icon-telegram { background-color: #0088cc; color: white; }
+        .icon-linkedin { background-color: #0077b5; color: white; }
+        .icon-whatsapp { background-color: #25D366; color: white; }
+
+        @keyframes slow-pulse {
+            0% { transform: scale(1); opacity: 0.12; }
+            50% { transform: scale(1.08); opacity: 0.22; }
+            100% { transform: scale(1); opacity: 0.12; }
+        }
+        .animate-watermark {
+            animation: slow-pulse 8s ease-in-out infinite;
+        }
+
+        #businessLogo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transform: scale(1.1); 
+        }
+
+        .profile-container {
+            z-index: 20;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 py-8">
+
+    <div id="messageBox" class="fixed top-4 left-1/2 -translate-x-1/2 p-3 rounded-lg text-sm text-center hidden z-50 transition-all duration-300 shadow-xl">
+        Action completed.
+    </div>
+
+    <div id="id-card-content" 
+        class="graph-pattern-background max-w-sm w-full mx-auto p-4 md:p-6 rounded-3xl 
+               border border-gray-800 
+               shadow-[0_20px_50px_rgba(0,0,0,0.8)] 
+               relative overflow-hidden">
+        
+        <!-- Header with Black Background and Shofar Ads Logo -->
+        <div class="wave-background absolute top-0 left-0 right-0 h-80 -mt-1 -mx-1 rounded-t-[1.5rem] flex justify-center items-center">
+            <div class="p-2 flex justify-center items-center z-10 w-full h-full"> 
+                <img id="businessLogo" 
+                    src="https://i.ibb.co/gbhKyRF6/Sofonias-Genanaw.png" 
+                    alt="Shofar Ads Logo" 
+                    onerror="this.onerror=null; this.src='https://placehold.co/400x400/010203/FFFFFF?text=Shofar+Ads';"
+                >
+            </div>
+        </div>
+
+        <!-- Brand Watermark -->
+        <div class="absolute inset-0 z-0 pointer-events-none flex justify-center items-center">
+            <div class="absolute animate-watermark w-full h-full flex justify-center items-center">
+                <img src="https://i.ibb.co/ks8KTjVw/LOGO-3-removebg-preview.png" alt="Watermark" class="w-4/5 h-4/5 object-contain">
+            </div>
+        </div>
+
+        <div class="strip-decoration strip-ur-1"></div>
+        <div class="strip-decoration strip-ll-1"></div>
+
+        <div class="relative z-10"> 
+            <div class="text-center mb-6 pt-64"> 
+                <!-- Profile Picture -->
+                <div class="relative w-40 h-40 mx-auto rounded-full border-4 border-gray-900 shadow-2xl overflow-hidden profile-container">
+                    <img 
+                        id="profilePicture" 
+                        src="https://i.ibb.co/RGrFWmNJ/32609-7a1f3b2322a1ce0f2e03d1dddcbe068f-12-4-2025-1-29-58-PM.png" 
+                        alt="Sofonias Genanaw" 
+                        class="w-full h-full rounded-full object-cover"
+                    >
+                </div>
+                
+                <h1 id="contactName" class="text-2xl font-extrabold text-white mt-4">Sofonias Genanaw</h1> 
+                <p id="contactOrg" class="text-lg font-semibold text-[#fa3d22] mt-1 leading-tight px-4">Shofar Ads</p>
+                <p id="contactTitle" class="text-sm font-medium text-gray-400 uppercase tracking-widest mt-2">Sales & Marketing Manager</p> 
+            </div>
+
+            <div class="space-y-3 mt-8">
+                <!-- Primary Call Button -->
+                <a href="tel:+251920508303" class="contact-btn flex items-center justify-center p-3 bg-black text-[#fa3d22] font-bold rounded-xl">
+                    <i data-lucide="phone" class="w-5 h-5 mr-3"></i>
+                    Call: +251 920 508303
+                </a>
+
+                <!-- Secondary Call Button -->
+                <a href="tel:+251981519575" class="contact-btn flex items-center justify-center p-3 bg-black text-[#fa3d22] font-bold rounded-xl opacity-80">
+                    <i data-lucide="phone-forwarded" class="w-5 h-5 mr-3"></i>
+                    Sec: +251 981 519575
+                </a>
+
+                <!-- WhatsApp Button -->
+                <a href="https://wa.me/251920508303" target="_blank" class="contact-btn flex items-center justify-center p-3 bg-black text-white font-bold rounded-xl border-green-500">
+                    <i class="fa-brands fa-whatsapp text-xl mr-3 text-[#25D366]"></i>
+                    WhatsApp Sofonias
+                </a>
+
+                <!-- SMS Button -->
+                <a href="sms:+251920508303" class="contact-btn flex items-center justify-center p-3 bg-black text-white font-bold rounded-xl border-gray-700">
+                    <i data-lucide="message-square" class="w-5 h-5 mr-3"></i>
+                    Send SMS
+                </a>
+            </div>
+            
+            <div class="mt-8 border-t border-gray-800 pt-6">
+                <div class="flex justify-center gap-5"> 
+                    <a href="https://t.me/lomi_legacy" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full transition-transform hover:scale-110 icon-telegram">
+                        <i class="fa-brands fa-telegram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sofonias-genanaw-7aa474136?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full transition-transform hover:scale-110 icon-linkedin">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-10 space-y-3">
+                <button 
+                    id="downloadButton"
+                    class="w-full flex items-center justify-center p-3 bg-[#fa3d22] text-white font-black rounded-xl shadow-lg hover:opacity-90 transition-opacity"
+                >
+                    <i data-lucide="download" class="w-5 h-5 mr-2"></i>
+                    SAVE CARD AS IMAGE
+                </button>
+
+                <button 
+                    id="vcfButton"
+                    class="w-full flex items-center justify-center p-3 bg-transparent text-gray-300 font-bold rounded-xl border border-gray-700 hover:bg-gray-900 transition-colors"
+                >
+                    <i data-lucide="user-plus" class="w-5 h-5 mr-2"></i>
+                    ADD TO CONTACTS
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        const messageBox = document.getElementById('messageBox');
+        
+        function showMessage(text) {
+            messageBox.textContent = text;
+            messageBox.classList.remove('hidden');
+            messageBox.classList.add('bg-gray-800', 'text-[#fa3d22]', 'border', 'border-[#fa3d22]'); 
+            setTimeout(() => { messageBox.classList.add('hidden'); }, 3000);
+        }
+
+        document.getElementById('downloadButton').addEventListener('click', () => {
+            const card = document.getElementById('id-card-content');
+            showMessage('Saving image...'); 
+            html2canvas(card, {
+                scale: 3,
+                useCORS: true,
+                backgroundColor: '#010203',
+                borderRadius: 24
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'Sofonias_Genanaw_BusinessCard.png';
+                link.click();
+            });
+        });
+
+        document.getElementById('vcfButton').addEventListener('click', () => {
+            let vcf = "BEGIN:VCARD\nVERSION:3.0\nFN:Sofonias Genanaw\nORG:Shofar Ads\nTITLE:Sales & Marketing Manager\nTEL:+251920508303\nTEL;TYPE=CELL:+251981519575\nURL:https://www.linkedin.com/in/sofonias-genanaw-7aa474136\nEND:VCARD";
+            const blob = new Blob([vcf], { type: 'text/vcard' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `Sofonias_Genanaw.vcf`;
+            link.click();
+            showMessage('VCF Created!');
+        });
+    </script>
+</body>
+</html>
