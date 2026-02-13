@@ -7,7 +7,7 @@
     
     <meta property="og:title" content="Sofonias Genanaw - Digital Business Card" />
     <meta property="og:description" content="Digital Business Card for Sofonias Genanaw, Sales & Marketing Manager at Shofar Ads." />
-    <meta property="og:image" content="https://ibb.co/wrgP0ywF][img]https://i.ibb.co/XkLK2X3r/f97ad8c3-a99e-449e-8c0e-f4fcd3d6b112.png[/img]" /> 
+    <meta property="og:image" content="https://i.ibb.co/XkLK2X3r/f97ad8c3-a99e-449e-8c0e-f4fcd3d6b112.png" /> 
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -20,7 +20,6 @@
             background-color: #010203;
         }
         
-        /* Updated Primary Color: #fa3d22 */
         .contact-btn {
             transition: all 0.2s;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
@@ -35,12 +34,54 @@
             background: #010203; 
             position: relative; 
             overflow: hidden; 
-            z-index: 1; 
+            z-index: 5; 
             border-bottom: 4px solid #fa3d22; 
         }
 
         .graph-pattern-background {
             background-color: #010203; 
+            position: relative;
+        }
+
+        /* Shared Sequential Animation */
+        @keyframes pattern-slide-sequence {
+            0% { background-position: 0 0; }
+            50% { background-position: -100px 50px; } /* Move diagonal */
+            100% { background-position: 0 0; }      /* Move Back */
+        }
+
+        /* Tiled Official Company Pattern Overlay (Main Card) */
+        .pattern-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://i.ibb.co/LhHYncR3/Untitled-design-7.png');
+            background-repeat: repeat;
+            background-size: 60px; 
+            opacity: 0.12; 
+            pointer-events: none;
+            z-index: 50; 
+            /* Added animation to the global top-layer pattern too */
+            animation: pattern-slide-sequence 20s ease-in-out infinite;
+        }
+
+        /* Sequential Animation specifically for Header Pattern (Larger movement) */
+        @keyframes header-pattern-sequence {
+            0% { background-position: 0 0; }
+            50% { background-position: -150px 0; } 
+            100% { background-position: 0 0; }      
+        }
+
+        /* LARGER Pattern Overlay specifically for the Header/Logo Container */
+        .header-pattern-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://i.ibb.co/LhHYncR3/Untitled-design-7.png');
+            background-repeat: repeat;
+            background-size: 150px; 
+            opacity: 0.18; 
+            pointer-events: none;
+            z-index: 6; 
+            animation: header-pattern-sequence 12s ease-in-out infinite;
         }
 
         .strip-decoration {
@@ -50,6 +91,7 @@
             background-color: #fa3d22;
             transform: rotate(-45deg); 
             opacity: 0.15;
+            z-index: 3;
         }
         .strip-ur-1 { top: -100px; right: -150px; } 
         .strip-ll-1 { bottom: -100px; left: -150px; } 
@@ -73,6 +115,8 @@
             object-fit: contain;
             display: block;
             transform: scale(1.1); 
+            position: relative;
+            z-index: 10;
         }
 
         .profile-container {
@@ -83,7 +127,7 @@
 </head>
 <body class="min-h-screen p-4 py-8">
 
-    <div id="messageBox" class="fixed top-4 left-1/2 -translate-x-1/2 p-3 rounded-lg text-sm text-center hidden z-50 transition-all duration-300 shadow-xl">
+    <div id="messageBox" class="fixed top-4 left-1/2 -translate-x-1/2 p-3 rounded-lg text-sm text-center hidden z-[100] transition-all duration-300 shadow-xl">
         Action completed.
     </div>
 
@@ -93,9 +137,15 @@
                shadow-[0_20px_50px_rgba(0,0,0,0.8)] 
                relative overflow-hidden">
         
-        <!-- Header with Black Background and Shofar Ads Logo -->
+        <!-- Animated Global Tiled Pattern (Covers everything on top) -->
+        <div class="pattern-overlay"></div>
+
+        <!-- Header with Shofar Ads Logo -->
         <div class="wave-background absolute top-0 left-0 right-0 h-80 -mt-1 -mx-1 rounded-t-[1.5rem] flex justify-center items-center">
-            <div class="p-2 flex justify-center items-center z-10 w-full h-full"> 
+            <!-- Animated Larger Header Pattern -->
+            <div class="header-pattern-overlay"></div>
+            
+            <div class="p-2 flex justify-center items-center w-full h-full relative"> 
                 <img id="businessLogo" 
                     src="https://i.ibb.co/gbhKyRF6/Sofonias-Genanaw.png" 
                     alt="Shofar Ads Logo" 
@@ -105,7 +155,7 @@
         </div>
 
         <!-- Brand Watermark -->
-        <div class="absolute inset-0 z-0 pointer-events-none flex justify-center items-center">
+        <div class="absolute inset-0 z-1 pointer-events-none flex justify-center items-center">
             <div class="absolute animate-watermark w-full h-full flex justify-center items-center">
                 <img src="https://i.ibb.co/ks8KTjVw/LOGO-3-removebg-preview.png" alt="Watermark" class="w-4/5 h-4/5 object-contain">
             </div>
@@ -115,20 +165,20 @@
         <div class="strip-decoration strip-ll-1"></div>
 
         <div class="relative z-10"> 
-            <div class="text-center mb-6 pt-64"> 
+            <div class="text-center mb-6 pt-44"> 
                 <!-- Profile Picture -->
-                <div class="relative w-40 h-40 mx-auto rounded-full border-4 border-gray-900 shadow-2xl overflow-hidden profile-container">
+                <div class="relative w-56 h-56 mx-auto profile-container">
                     <img 
                         id="profilePicture" 
-                        src="https://i.ibb.co/RGrFWmNJ/32609-7a1f3b2322a1ce0f2e03d1dddcbe068f-12-4-2025-1-29-58-PM.png" 
+                        src="https://i.ibb.co/XkLK2X3r/f97ad8c3-a99e-449e-8c0e-f4fcd3d6b112.png" 
                         alt="Sofonias Genanaw" 
-                        class="w-full h-full rounded-full object-cover"
+                        class="w-full h-full object-contain scale-105"
                     >
                 </div>
                 
                 <h1 id="contactName" class="text-2xl font-extrabold text-white mt-4">Sofonias Genanaw</h1> 
                 <p id="contactOrg" class="text-lg font-semibold text-[#fa3d22] mt-1 leading-tight px-4">Shofar Ads</p>
-                <p id="contactTitle" class="text-sm font-medium text-gray-400 uppercase tracking-widest mt-2">Sales & Marketing Manager</p> 
+                <p id="contactTitle" class="text-sm font-bold text-white uppercase tracking-widest mt-2">Sales & Marketing Manager</p> 
             </div>
 
             <div class="space-y-3 mt-8">
@@ -226,6 +276,4 @@
         });
     </script>
 </body>
-
 </html>
-
