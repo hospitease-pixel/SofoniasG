@@ -43,45 +43,23 @@
             position: relative;
         }
 
-        /* Shared Sequential Animation */
-        @keyframes pattern-slide-sequence {
+        /* Rainfall Animation: Top to Bottom */
+        @keyframes rainfall-sequence {
             0% { background-position: 0 0; }
-            50% { background-position: -100px 50px; } /* Move diagonal */
-            100% { background-position: 0 0; }      /* Move Back */
+            100% { background-position: 0 400px; } 
         }
 
-        /* Tiled Official Company Pattern Overlay (Main Card) */
+        /* Global Pattern Overlay - remains for texture but logo container is isolated */
         .pattern-overlay {
             position: absolute;
             inset: 0;
             background-image: url('https://i.ibb.co/LhHYncR3/Untitled-design-7.png');
             background-repeat: repeat;
-            background-size: 60px; 
+            background-size: 100px; 
             opacity: 0.12; 
             pointer-events: none;
             z-index: 50; 
-            /* Added animation to the global top-layer pattern too */
-            animation: pattern-slide-sequence 20s ease-in-out infinite;
-        }
-
-        /* Sequential Animation specifically for Header Pattern (Larger movement) */
-        @keyframes header-pattern-sequence {
-            0% { background-position: 0 0; }
-            50% { background-position: -150px 0; } 
-            100% { background-position: 0 0; }      
-        }
-
-        /* LARGER Pattern Overlay specifically for the Header/Logo Container */
-        .header-pattern-overlay {
-            position: absolute;
-            inset: 0;
-            background-image: url('https://i.ibb.co/LhHYncR3/Untitled-design-7.png');
-            background-repeat: repeat;
-            background-size: 150px; 
-            opacity: 0.18; 
-            pointer-events: none;
-            z-index: 6; 
-            animation: header-pattern-sequence 12s ease-in-out infinite;
+            animation: rainfall-sequence 25s linear infinite;
         }
 
         .strip-decoration {
@@ -137,14 +115,12 @@
                shadow-[0_20px_50px_rgba(0,0,0,0.8)] 
                relative overflow-hidden">
         
-        <!-- Animated Global Tiled Pattern (Covers everything on top) -->
+        <!-- Animated Global Tiled Pattern (Rainfall) -->
         <div class="pattern-overlay"></div>
 
-        <!-- Header with Shofar Ads Logo -->
+        <!-- Header with Shofar Ads Logo - Pattern removed from here -->
         <div class="wave-background absolute top-0 left-0 right-0 h-80 -mt-1 -mx-1 rounded-t-[1.5rem] flex justify-center items-center">
-            <!-- Animated Larger Header Pattern -->
-            <div class="header-pattern-overlay"></div>
-            
+            <!-- The header-pattern-overlay was removed to clean up the logo area -->
             <div class="p-2 flex justify-center items-center w-full h-full relative"> 
                 <img id="businessLogo" 
                     src="https://i.ibb.co/gbhKyRF6/Sofonias-Genanaw.png" 
@@ -182,25 +158,21 @@
             </div>
 
             <div class="space-y-3 mt-8">
-                <!-- Primary Call Button -->
                 <a href="tel:+251920508303" class="contact-btn flex items-center justify-center p-3 bg-black text-[#fa3d22] font-bold rounded-xl">
                     <i data-lucide="phone" class="w-5 h-5 mr-3"></i>
                     Call: +251 920 508303
                 </a>
 
-                <!-- Secondary Call Button -->
                 <a href="tel:+251981519575" class="contact-btn flex items-center justify-center p-3 bg-black text-[#fa3d22] font-bold rounded-xl opacity-80">
                     <i data-lucide="phone-forwarded" class="w-5 h-5 mr-3"></i>
                     Sec: +251 981 519575
                 </a>
 
-                <!-- WhatsApp Button -->
                 <a href="https://wa.me/251920508303" target="_blank" class="contact-btn flex items-center justify-center p-3 bg-black text-white font-bold rounded-xl border-green-500">
                     <i class="fa-brands fa-whatsapp text-xl mr-3 text-[#25D366]"></i>
                     WhatsApp Sofonias
                 </a>
 
-                <!-- SMS Button -->
                 <a href="sms:+251920508303" class="contact-btn flex items-center justify-center p-3 bg-black text-white font-bold rounded-xl border-gray-700">
                     <i data-lucide="message-square" class="w-5 h-5 mr-3"></i>
                     Send SMS
